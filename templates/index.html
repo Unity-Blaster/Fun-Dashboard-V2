@@ -1,0 +1,428 @@
+{% extends 'base.html' %} {% block head %}
+<title>Fun Dashboard</title>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/style.css') }}"
+/>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+{% endblock %} {% block body %}
+<body>
+  <main class="frame">
+    <div class="topFrame">
+      <div class="FrameCorner">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="17"
+          height="17"
+          fill="none"
+          viewBox="0 0 17 17"
+        >
+          <path
+            d="M15.29.495H819.96a1.5 1.5 0 011.5 1.5v275.172c0 .398-.158.779-.439 1.06l-14.828 14.829a1.503 1.503 0 01-1.061.439H1.961a1.5 1.5 0 01-1.5-1.5V15.324c0-.398.158-.78.44-1.061L14.229.934a1.5 1.5 0 011.06-.439z"
+          ></path>
+        </svg>
+      </div>
+      <div class="FrameLine"></div>
+    </div>
+    <div class="contentFrame base-grid" id="root">
+      <section class="frame">
+        <div class="topFrame">
+          <div class="FrameCorner">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="17"
+              height="17"
+              fill="none"
+              viewBox="0 0 17 17"
+            >
+              <path
+                fill="var(--opera-secondary-background-color)"
+                stroke="var(--item-border-color)"
+                d="M15.29.495H819.96a1.5 1.5 0 011.5 1.5v275.172c0 .398-.158.779-.439 1.06l-14.828 14.829a1.503 1.503 0 01-1.061.439H1.961a1.5 1.5 0 01-1.5-1.5V15.324c0-.398.158-.78.44-1.061L14.229.934a1.5 1.5 0 011.06-.439z"
+              ></path>
+            </svg>
+          </div>
+          <div class="FrameLine"></div>
+        </div>
+        <div class="contentFrame">
+          <h1>
+            Dashboard
+            <hr />
+          </h1>
+          <h2>
+            This Client
+            <hr />
+          </h2>
+          <div class="mainContent">
+            <div class="time-content">--:--:--.---</div>
+            <div class="date-content">[[NULL]]</div>
+          </div>
+        </div>
+        <div class="bottomFrame">
+          <div class="FrameLine"></div>
+          <div class="FrameCorner rightBottomCorner">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="17"
+              height="17"
+              fill="none"
+              viewBox="0 0 17 17"
+            >
+              <path
+                fill="var(--opera-secondary-background-color)"
+                stroke="var(--item-border-color)"
+                d="M15.29.495H819.96a1.5 1.5 0 011.5 1.5v275.172c0 .398-.158.779-.439 1.06l-14.828 14.829a1.503 1.503 0 01-1.061.439H1.961a1.5 1.5 0 01-1.5-1.5V15.324c0-.398.158-.78.44-1.061L14.229.934a1.5 1.5 0 011.06-.439z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+      </section>
+      <section class="frame">
+        <div class="topFrame">
+          <div class="FrameCorner">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="17"
+              height="17"
+              fill="none"
+              viewBox="0 0 17 17"
+            >
+              <path
+                fill="var(--opera-secondary-background-color)"
+                stroke="var(--item-border-color)"
+                d="M15.29.495H819.96a1.5 1.5 0 011.5 1.5v275.172c0 .398-.158.779-.439 1.06l-14.828 14.829a1.503 1.503 0 01-1.061.439H1.961a1.5 1.5 0 01-1.5-1.5V15.324c0-.398.158-.78.44-1.061L14.229.934a1.5 1.5 0 011.06-.439z"
+              ></path>
+            </svg>
+          </div>
+          <div class="FrameLine"></div>
+        </div>
+        <div class="contentFrame">
+          <h2>
+            Controls
+            <hr />
+          </h2>
+          <div class="mainContent">
+            <div class="buttons">
+              <div class="buttonsTop">
+                <button class="button buttonPrimary" onclick="popup()">
+                  Press Me!
+                </button>
+                <button
+                  class="button buttonPrimary"
+                  onclick="location.reload();"
+                >
+                  Reload
+                </button>
+              </div>
+              <div class="buttonsBottom">
+                Clients: 
+                <button class="button buttonPrimary" onclick="AddClient();">
+                  Add
+                </button>
+                <button class="button buttonPrimary" onclick="removeClient();">
+                  Remove
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bottomFrame">
+          <div class="FrameLine"></div>
+          <div class="FrameCorner rightBottomCorner">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="17"
+              height="17"
+              fill="none"
+              viewBox="0 0 17 17"
+            >
+              <path
+                fill="var(--opera-secondary-background-color)"
+                stroke="var(--item-border-color)"
+                d="M15.29.495H819.96a1.5 1.5 0 011.5 1.5v275.172c0 .398-.158.779-.439 1.06l-14.828 14.829a1.503 1.503 0 01-1.061.439H1.961a1.5 1.5 0 01-1.5-1.5V15.324c0-.398.158-.78.44-1.061L14.229.934a1.5 1.5 0 011.06-.439z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+      </section>
+      <section class="frame">
+        <div class="topFrame">
+          <div class="FrameCorner">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="17"
+              height="17"
+              fill="none"
+              viewBox="0 0 17 17"
+            >
+              <path
+                fill="var(--opera-secondary-background-color)"
+                stroke="var(--item-border-color)"
+                d="M15.29.495H819.96a1.5 1.5 0 011.5 1.5v275.172c0 .398-.158.779-.439 1.06l-14.828 14.829a1.503 1.503 0 01-1.061.439H1.961a1.5 1.5 0 01-1.5-1.5V15.324c0-.398.158-.78.44-1.061L14.229.934a1.5 1.5 0 011.06-.439z"
+              ></path>
+            </svg>
+          </div>
+          <div class="FrameLine"></div>
+        </div>
+        <div class="contentFrame">
+          <h2>
+            Clients Connected
+            <hr />
+          </h2>
+          <div class="mainContent">
+            <ul>
+              <li>Client A</li>
+              <li>Client B</li>
+              <li>Client C</li>
+              <li>Client D</li>
+              <li>Client E</li>
+              <li>Client F</li>
+              <li>Client G</li>
+              <li>Client H</li>
+            </ul>
+          </div>
+        </div>
+        <div class="bottomFrame">
+          <div class="FrameLine"></div>
+          <div class="FrameCorner rightBottomCorner">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="17"
+              height="17"
+              fill="none"
+              viewBox="0 0 17 17"
+            >
+              <path
+                fill="var(--opera-secondary-background-color)"
+                stroke="var(--item-border-color)"
+                d="M15.29.495H819.96a1.5 1.5 0 011.5 1.5v275.172c0 .398-.158.779-.439 1.06l-14.828 14.829a1.503 1.503 0 01-1.061.439H1.961a1.5 1.5 0 01-1.5-1.5V15.324c0-.398.158-.78.44-1.061L14.229.934a1.5 1.5 0 011.06-.439z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+      </section>
+      <section class="frame">
+        <div class="topFrame">
+          <div class="FrameCorner">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="17"
+              height="17"
+              fill="none"
+              viewBox="0 0 17 17"
+            >
+              <path
+                fill="var(--opera-secondary-background-color)"
+                stroke="var(--item-border-color)"
+                d="M15.29.495H819.96a1.5 1.5 0 011.5 1.5v275.172c0 .398-.158.779-.439 1.06l-14.828 14.829a1.503 1.503 0 01-1.061.439H1.961a1.5 1.5 0 01-1.5-1.5V15.324c0-.398.158-.78.44-1.061L14.229.934a1.5 1.5 0 011.06-.439z"
+              ></path>
+            </svg>
+          </div>
+          <div class="FrameLine"></div>
+        </div>
+        <div class="contentFrame">
+          <h2>
+            Extra Stuff
+            <hr />
+          </h2>
+          <div class="mainContent"></div>
+        </div>
+        <div class="bottomFrame">
+          <div class="FrameLine"></div>
+          <div class="FrameCorner rightBottomCorner">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="17"
+              height="17"
+              fill="none"
+              viewBox="0 0 17 17"
+            >
+              <path
+                fill="var(--opera-secondary-background-color)"
+                stroke="var(--item-border-color)"
+                d="M15.29.495H819.96a1.5 1.5 0 011.5 1.5v275.172c0 .398-.158.779-.439 1.06l-14.828 14.829a1.503 1.503 0 01-1.061.439H1.961a1.5 1.5 0 01-1.5-1.5V15.324c0-.398.158-.78.44-1.061L14.229.934a1.5 1.5 0 011.06-.439z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+      </section>
+      <section class="frame">
+        <div class="topFrame">
+          <div class="FrameCorner">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="17"
+              height="17"
+              fill="none"
+              viewBox="0 0 17 17"
+            >
+              <path
+                fill="var(--opera-secondary-background-color)"
+                stroke="var(--item-border-color)"
+                d="M15.29.495H819.96a1.5 1.5 0 011.5 1.5v275.172c0 .398-.158.779-.439 1.06l-14.828 14.829a1.503 1.503 0 01-1.061.439H1.961a1.5 1.5 0 01-1.5-1.5V15.324c0-.398.158-.78.44-1.061L14.229.934a1.5 1.5 0 011.06-.439z"
+              ></path>
+            </svg>
+          </div>
+          <div class="FrameLine"></div>
+        </div>
+        <div class="contentFrame">
+          <h2>
+            Details
+            <hr />
+          </h2>
+          <div class="mainContent"></div>
+        </div>
+        <div class="bottomFrame">
+          <div class="FrameLine"></div>
+          <div class="FrameCorner rightBottomCorner">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="17"
+              height="17"
+              fill="none"
+              viewBox="0 0 17 17"
+            >
+              <path
+                fill="var(--opera-secondary-background-color)"
+                stroke="var(--item-border-color)"
+                d="M15.29.495H819.96a1.5 1.5 0 011.5 1.5v275.172c0 .398-.158.779-.439 1.06l-14.828 14.829a1.503 1.503 0 01-1.061.439H1.961a1.5 1.5 0 01-1.5-1.5V15.324c0-.398.158-.78.44-1.061L14.229.934a1.5 1.5 0 011.06-.439z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+      </section>
+      <section class="frame">
+        <div class="topFrame">
+          <div class="FrameCorner">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="17"
+              height="17"
+              fill="none"
+              viewBox="0 0 17 17"
+            >
+              <path
+                fill="var(--opera-secondary-background-color)"
+                stroke="var(--item-border-color)"
+                d="M15.29.495H819.96a1.5 1.5 0 011.5 1.5v275.172c0 .398-.158.779-.439 1.06l-14.828 14.829a1.503 1.503 0 01-1.061.439H1.961a1.5 1.5 0 01-1.5-1.5V15.324c0-.398.158-.78.44-1.061L14.229.934a1.5 1.5 0 011.06-.439z"
+              ></path>
+            </svg>
+          </div>
+          <div class="FrameLine"></div>
+        </div>
+        <div class="contentFrame">
+          <h2>
+            VenAI
+            <hr />
+          </h2>
+          <div class="mainContent">
+            <div class="scroll-container chat"></div>
+            <footer>
+              <div class="frame">
+                <div class="topFrame">
+                  <div class="FrameCorner">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="17"
+                      height="17"
+                      fill="none"
+                      viewBox="0 0 17 17"
+                    >
+                      <path
+                        fill="var(--opera-secondary-background-color)"
+                        stroke="var(--item-border-color)"
+                        d="M15.29.495H819.96a1.5 1.5 0 011.5 1.5v275.172c0 .398-.158.779-.439 1.06l-14.828 14.829a1.503 1.503 0 01-1.061.439H1.961a1.5 1.5 0 01-1.5-1.5V15.324c0-.398.158-.78.44-1.061L14.229.934a1.5 1.5 0 011.06-.439z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="FrameLine"></div>
+                </div>
+                <div class="contentFrame footerMsgBox">
+                  <div class="mainContent">
+                    <div class="msgBox">
+                      <input type="text" name="textInput" class="textInput" />
+                      <div class="sendBtn">
+                        <input
+                          type="submit"
+                          name="sendBtn"
+                          value=""
+                          class="sendBtn1"
+                        />
+                        <svg viewBox="0 0 512.001 512.001">
+                          <path
+                            d="M483.927,212.664L66.967,25.834C30.95,9.695-7.905,42.024,1.398,80.367l21.593,89.001     c3.063,12.622,11.283,23.562,22.554,30.014l83.685,47.915c6.723,3.85,6.738,13.546,0,17.405l-83.684,47.915     c-11.271,6.452-19.491,17.393-22.554,30.015L1.398,431.633c-9.283,38.257,29.507,70.691,65.569,54.534l416.961-186.83     C521.383,282.554,521.333,229.424,483.927,212.664z M468.609,265.151l-416.96,186.83c-7.618,3.417-15.814-3.398-13.845-11.516     l21.593-89.001c0.647-2.665,2.383-4.975,4.761-6.337l83.685-47.915c31.857-18.239,31.887-64.167,0-82.423l-83.685-47.916     c-2.379-1.362-4.115-3.672-4.761-6.337L37.804,71.535c-1.945-8.016,6.128-14.975,13.845-11.514L468.61,246.85     C476.522,250.396,476.542,261.596,468.609,265.151z"
+                          />
+                          <path
+                            d="M359.268,238.907l-147.519-66.1c-9.444-4.231-20.523-0.005-24.752,9.435c-4.231,9.44-0.006,20.523,9.434,24.752     L305.802,256l-109.37,49.006c-9.44,4.231-13.664,15.313-9.434,24.752c4.231,9.443,15.312,13.663,24.752,9.435l147.519-66.101     C373.996,266.495,374.006,245.51,359.268,238.907z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="bottomFrame">
+                  <div class="FrameLine"></div>
+                  <div class="FrameCorner rightBottomCorner">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="17"
+                      height="17"
+                      fill="none"
+                      viewBox="0 0 17 17"
+                    >
+                      <path
+                        fill="var(--opera-secondary-background-color)"
+                        stroke="var(--item-border-color)"
+                        d="M15.29.495H819.96a1.5 1.5 0 011.5 1.5v275.172c0 .398-.158.779-.439 1.06l-14.828 14.829a1.503 1.503 0 01-1.061.439H1.961a1.5 1.5 0 01-1.5-1.5V15.324c0-.398.158-.78.44-1.061L14.229.934a1.5 1.5 0 011.06-.439z"
+                      ></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </footer>
+          </div>
+        </div>
+        <div class="bottomFrame">
+          <div class="FrameLine"></div>
+          <div class="FrameCorner rightBottomCorner">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="17"
+              height="17"
+              fill="none"
+              viewBox="0 0 17 17"
+            >
+              <path
+                fill="var(--opera-secondary-background-color)"
+                stroke="var(--item-border-color)"
+                d="M15.29.495H819.96a1.5 1.5 0 011.5 1.5v275.172c0 .398-.158.779-.439 1.06l-14.828 14.829a1.503 1.503 0 01-1.061.439H1.961a1.5 1.5 0 01-1.5-1.5V15.324c0-.398.158-.78.44-1.061L14.229.934a1.5 1.5 0 011.06-.439z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="bottomFrame">
+      <div class="FrameLine"></div>
+      <div class="FrameCorner rightBottomCorner">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="17"
+          height="17"
+          fill="none"
+          viewBox="0 0 17 17"
+        >
+          <path
+            d="M15.29.495H819.96a1.5 1.5 0 011.5 1.5v275.172c0 .398-.158.779-.439 1.06l-14.828 14.829a1.503 1.503 0 01-1.061.439H1.961a1.5 1.5 0 01-1.5-1.5V15.324c0-.398.158-.78.44-1.061L14.229.934a1.5 1.5 0 011.06-.439z"
+          ></path>
+        </svg>
+      </div>
+    </div>
+  </main>
+  <video src="static/media/Cyberdeck.webm" autoplay muted loop></video>
+  <div class="shade"></div>
+  <div class="popup">
+    This is the text that appears when you click the button.
+  </div>
+  {% endblock %}
+</body>

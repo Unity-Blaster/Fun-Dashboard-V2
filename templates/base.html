@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" class="gx very-dark-wallpaper dark-theme">
+<head>
+    {% block head %}
+    {% endblock %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link
+    rel="shortcut icon"
+    href="{{ url_for('static', filename='media/favicon.ico') }}"
+    type="image/x-icon"
+  />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/opera-gx/theme.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/opera-gx/colors.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/opera-gx/common.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/opera-gx/scrollbars.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/opera-gx/var.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/venai.css') }}" />
+  <script type="text/javascript" src="{{ url_for('static', filename='js/purify.min.js') }}"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "@google/generative-ai": "https://esm.run/@google/generative-ai"
+      }
+    }
+  </script>
+  <script type="module" src="{{ url_for('static', filename='js/venai.js') }}"></script>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}" />
+</head>
+<body>
+    {% block body %}
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,312 @@
+:root,
+body * {
+  --maxWidth: 1000px;
+  --btnHeight: 64px;
+  --antiTheme: #ffffff;
+  --bg: #00456d;
+  --fg: #afafff;
+  --color: lightblue;
+  --mix: rgb(0 0 0);
+  --contrast: color-mix(in lab, currentColor 15%, var(--mix));
+  color: color-mix(in lab, currentColor 92%, var(--fg));
+  --clamp: clamp(50px, 10%, 20px);
+  --clamp2: clamp(100px, 10%, 20px);
+}
+
+@media (prefers-color-scheme: light) {
+  :root,
+  body * {
+    --antiTheme: #000000;
+    --mix: rgb(255 255 255);
+    --fg: #000020;
+    --bg: #004797;
+    --contrast: color-mix(in lab, currentColor 15%, var(--mix));
+    color: color-mix(in lab, currentColor 92%, var(--fg));
+  }
+
+  .box[data-type="userMsg"] {
+    --color: #228b22;
+  }
+
+  .box[data-type="aiMsg"] {
+    --color: #188bff;
+  }
+
+  body {
+    --contrast: color-mix(in lab, currentColor 32%, var(--mix));
+  }
+
+  ::-webkit-scrollbar-track {
+    --bg: #c8edff;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    --bg: #1b73f8;
+  }
+}
+
+.scroll-container {
+  width: 100%;
+  flex-grow: 1;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  display: grid;
+  gap: 1rem;
+  line-height: 1.5;
+  padding: 1rem;
+  padding-left: 0;
+  /* background: #212121; */
+  color: var(--color);
+  /* background: var(--contrast); */
+  /* border: 2px solid color-mix(in lab, currentColor 100%, var(--mix)); */
+  /* border-radius: 8px; */
+  max-height: 48rem;
+  height: 100%;
+}
+
+.box {
+  border-radius: 1rem 0;
+  padding: 1rem;
+  color: var(--color);
+  /* background: var(--contrast); */
+  border: var(--border-width) solid
+    color-mix(in lab, currentColor 85%, var(--mix));
+  height: fit-content;
+  max-width: 19rem;
+  text-wrap: wrap;
+  /* text-align: justify; */
+  line-height: 1.4;
+  font-size: 1.25rem;
+
+  @media (prefers-contrast: more) {
+    background: linear-gradient(to top, currentColor, var(--mix) 10%);
+  }
+
+  p,
+  ul,
+  ol {
+    padding-bottom: 0.5rem;
+  }
+
+  ul,
+  ol {
+    padding: 0;
+    padding-left: 1rem;
+  }
+
+  strong {
+    font-weight: bolder;
+    font-family: "Arial";
+    text-decoration: underline 1px;
+  }
+
+  code {
+    background-color: #00000069;
+    color: #ffffffaf;
+    border-radius: 8px;
+    width: 100%;
+    padding: 0.4rem;
+    font-family: "Courier New", Courier, monospace;
+    /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+    font-size: 1.15rem;
+
+    /* &.language-css {
+      
+    } */
+
+    &:blank {
+      overflow-x: none;
+    }
+  }
+
+  pre {
+    h1 {
+      width: 100%;
+      background-color: #00000069;
+      padding: 0;
+      margin: 0;
+      display: block;
+      font-size: 1.25rem;
+    }
+
+    &:has(.language-js),
+    &:has(.language-javascript) {
+      code::before {
+        content: "JavaScript";
+      }
+    }
+    &:has(.language-css) {
+      code::before {
+        content: "CSS";
+      }
+    }
+    &:has(.language-html) {
+      code::before {
+        content: "HTML";
+      }
+    }
+    &:has(.language-js),
+    &:has(.language-javascript),
+    &:has(.language-css),
+    &:has(.language-html) {
+      code::before {
+        justify-content: center;
+        display: grid;
+        font-size: 1.1rem;
+        border-bottom: #afafaf calc(var(--border-width) / 2)  solid;
+        margin-bottom: 0.4rem;
+        font-weight: 900;
+        font-family: "Courier New", Courier, monospace;
+      }
+    }
+
+    code {
+      position: relative;
+      display: block;
+      overflow-y: hidden;
+      overflow-x: scroll;
+      border: #afafaf calc(var(--border-width) / 2) solid;
+    }
+  }
+}
+
+.box p b {
+  text-decoration: underline;
+  font-size: 1.5rem;
+  color: color-mix(in srgb, var(--color) 64%, var(--antiTheme));
+  text-decoration-color: currentColor;
+}
+
+.aiMsg,
+.aiMsg p b {
+  --color: #228b22;
+}
+
+.userMsg,
+.userMsg p b {
+  --color: #1e90ff;
+}
+
+.errorMsg,
+.errorMsg p b {
+  --color: crimson;
+}
+
+footer {
+  /* bottom: 0; */
+  height: var(--clamp2);
+  display: flex;
+  justify-content: center;
+}
+
+.msgBox {
+  --padding: 1rem;
+  height: 100%;
+  width: calc(100% - var(--padding));
+  max-width: var(--maxWidth);
+  display: flex;
+  gap: var(--padding);
+}
+
+.textInput,
+.sendBtn {
+  border-radius: 8px;
+  padding: 3ch;
+  color: var(--color);
+  /* background: var(--contrast); */
+  /* border: 2px solid color-mix(in lab, currentColor 85%, var(--mix)); */
+
+  @media (prefers-contrast: more) {
+    background: linear-gradient(to top, currentColor, var(--mix) 10%);
+  }
+}
+
+.textInput {
+  --color: skyblue;
+  background: #00000000;
+  width: 100%;
+  border: #8f8f8f var(--border-width) solid;
+  /* border-radius: 100%; */
+  padding: 0 0.75rem;
+  transition-property: border-color;
+  font-size: 1.25rem;
+  border-radius: 1rem 0;
+}
+
+.sendBtn {
+  --color: skyblue;
+  /* background: green; */
+  height: 100%;
+  aspect-ratio: 1;
+  border-radius: 100%;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition-property: border-color;
+}
+
+.sendBtn1 {
+  background-color: #00000000;
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  cursor: pointer;
+  border: #8f8f8f var(--border-width) solid;
+  transition-property: border-color;
+}
+
+.sendBtn svg {
+  height: 60%;
+  width: 60%;
+  fill: var(--color);
+  transform: translateX(8%);
+  pointer-events: none;
+}
+
+.sendBtn svg path {
+  transition-property: fill;
+}
+
+.sendBtn svg {
+  max-height: var(--btnHeight);
+
+  path {
+    fill: #afafaf;
+    stroke-width: var(--border-width);
+  }
+}
+
+.textInput:hover,
+.textInput:focus,
+.sendBtn:hover .sendBtn1,
+.sendBtn:focus .sendBtn1,
+.sendBtn:hover,
+.sendBtn:focus,
+.sendBtn:hover svg path,
+.sendBtn:focus svg path {
+  border-color: var(--antiTheme);
+  fill: var(--antiTheme);
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+}
+
+.sendBtn:hover,
+.sendBtn:focus {
+  border-color: #00000000;
+}
+
+footer {
+  --color: #58bcff;
+  width: 100%;
+  color: var(--color);
+  /* background: var(--contrast); */
+  /* border: 2px solid color-mix(in lab, currentColor 85%, var(--mix)); */
+  border-radius: 8px;
+
+  @media (prefers-contrast: more) {
+    background: linear-gradient(to top, currentColor, var(--mix) 20%);
+  }
+}

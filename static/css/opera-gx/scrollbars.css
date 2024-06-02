@@ -1,0 +1,32 @@
+:host,
+:root {
+  --scrollbar-color: var(--opera-dark-scrollbar-color);
+  --scrollbar-hover-color: var(--opera-dark-scrollbar-hover-color);
+}
+
+@media (prefers-color-scheme: dark) {
+  :host {
+    --scrollbar-color: var(--opera-light-scrollbar-color);
+    --scrollbar-hover-color: var(--opera-light-scrollbar-hover-color);
+  }
+}
+
+/* ::-webkit-scrollbar {
+  height: 12px;
+  width: 12px;
+} */
+
+::-webkit-scrollbar-thumb {
+  background-clip: padding-box;
+  background-color: var(--scrollbar-color);
+  border: 2px solid transparent;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-hover-color);
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
