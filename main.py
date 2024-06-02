@@ -19,7 +19,6 @@ class Clients(db.Model):
 	def __repr__(self):
 		return '<Client %r>' % self.id
 
-
 @app.route('/')
 def index():
 	return render_template('index.html')
